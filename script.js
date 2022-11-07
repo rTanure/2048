@@ -61,10 +61,15 @@ function join(dir) {
 function drawNumber() {
   let row = Math.floor(Math.random() * 4)
   let collumn = Math.floor(Math.random() * 4)
+  let random = Math.floor(Math.random() * 10)
 
   if (gameState[row][collumn] === 0) {
-    gameState[row][collumn] = 2
-  } else {
+    if (random === 0) {
+      gameState[row][collumn] = 4
+    } else {
+      gameState[row][collumn] = 2
+    }
+  } else { 
     drawNumber()
   }
 }
@@ -172,7 +177,7 @@ function drawSquare(coord, value) {
 
   ctx.beginPath()
   ctx.rect(square_size * coord.x, square_size * coord.y, square_size, square_size)
-  ctx.lineWidth = 2
+  ctx.lineWidth = 2.4
   ctx.stroke()
 
   let margin_x
